@@ -50,7 +50,7 @@ function CopyrightFooter() {
         >
           <Typography variant="body2">
             Made by{" "}
-            <Link href={socialData[0].url} underline="always">
+            <Link href={socialData[0].url} underline="none" target="_blank">
               Pramod Boda
             </Link>
           </Typography>
