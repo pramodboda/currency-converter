@@ -66,86 +66,92 @@ function CurrencyConverter() {
     <React.Fragment>
       <Card variant="outlined" sx={{ width: "20rem" }}>
         <CardContent>
-          <Stack
-            direction="row"
-            alignItems="center"
-            justifyContent="space-between"
-          >
-            <Box sx={{ minWidth: 120 }}>
-              <Typography variant="body2" color="text.secondary">
-                From
-              </Typography>
-              <FormControl fullWidth size="small" variant="filled">
-                <Select
-                  value={from}
-                  onChange={fromSelectChange}
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                  placeholder="From"
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  {options.map((option) => (
-                    <MenuItem key={option} value={option}>
-                      {option}
+          <Box sx={{ mb: 2 }}>
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+            >
+              <Box sx={{ minWidth: 120 }}>
+                <Typography variant="body2" color="text.secondary">
+                  From
+                </Typography>
+                <FormControl fullWidth size="small" variant="filled">
+                  <Select
+                    value={from}
+                    onChange={fromSelectChange}
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    placeholder="From"
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
                     </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Box>
-            <Box>
-              <IconButton
-                aria-label="Swap"
-                onClick={() => {
-                  flip();
-                }}
-              >
-                <SwapHorizontalCircleIcon fontSize="large" />
-              </IconButton>
-            </Box>
-            <Box sx={{ minWidth: 120 }}>
-              <Typography variant="body2" color="text.secondary">
-                To
-              </Typography>
-              <FormControl fullWidth size="small" variant="filled">
-                <Select
-                  value={to}
-                  onChange={toSelectChange}
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
+                    {options.map((option) => (
+                      <MenuItem key={option} value={option}>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Box>
+              <Box sx={{ pt: 2 }}>
+                <IconButton
+                  aria-label="Swap"
+                  onClick={() => {
+                    flip();
+                  }}
                 >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  {options.map((option) => (
-                    <MenuItem key={option} value={option}>
-                      {option}
+                  <SwapHorizontalCircleIcon fontSize="large" />
+                </IconButton>
+              </Box>
+              <Box sx={{ minWidth: 120 }}>
+                <Typography variant="body2" color="text.secondary">
+                  To
+                </Typography>
+                <FormControl fullWidth size="small" variant="filled">
+                  <Select
+                    value={to}
+                    onChange={toSelectChange}
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
                     </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Box>
-          </Stack>
+                    {options.map((option) => (
+                      <MenuItem key={option} value={option}>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Box>
+            </Stack>
+          </Box>
 
-          <Typography variant="body2" color="text.secondary">
-            Amount
-          </Typography>
-          <TextField
-            inputProps={{ "aria-label": "Without label" }}
-            id="amount"
-            variant="filled"
-            size="small"
-            onChange={(e) => setInput(e.target.value)}
-          />
+          <Box sx={{ mb: 2 }}>
+            <Typography variant="body2" color="text.secondary">
+              Amount
+            </Typography>
+            <TextField
+              inputProps={{ "aria-label": "Without label" }}
+              id="amount"
+              variant="filled"
+              size="small"
+              onChange={(e) => setInput(e.target.value)}
+            />
+          </Box>
+
           <Box>
-            <h2>Converted Amount:</h2>
-            <p>{input + " " + from + " = " + output.toFixed(2) + " " + to}</p>
+            <Typography variant="body2" sx={{fontWeight:"bold"}}>Converted Amount:</Typography>
+            <Typography variant="h5">{input + " " + from.toUpperCase() + " = " + output.toFixed(2) + " " + to.toUpperCase()}</Typography>
           </Box>
         </CardContent>
         <Button
           variant="contained"
           fullWidth
+          size="large"
           onClick={() => {
             convert();
           }}
