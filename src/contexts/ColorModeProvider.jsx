@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import ColorModeContext from "./ColorModeContext.js";
 
-import { purple, grey } from "@mui/material/colors";
+import { lightGreen, yellow, deepPurple, grey } from "@mui/material/colors";
 
 export default function ColorModeProvider({ children }) {
   const [mode, setMode] = React.useState("light");
@@ -27,23 +27,26 @@ export default function ColorModeProvider({ children }) {
           fontFamily: '"Plus Jakarta Sans", sans-serif',
         },
         components: {
+          MuiButtonBase: {
+            defaultProps: {
+              disableRipple: false,
+            },
+          },
           MuiCard: {
-            styleOverrides:{
-                root:{
-                    border: "none",
-                    borderRadius:"1.2rem",
-                }
-            }
+            styleOverrides: {
+              root: {
+                border: "none",
+                borderRadius: "1.2rem",
+              },
+            },
           },
           MuiCardContent: {
-            styleOverrides:{
-                root:{
-                    padding:"1.2rem"
-                }
-            }
+            styleOverrides: {
+              root: {
+                padding: "1.2rem",
+              },
+            },
           },
-
-          
         },
         palette: {
           mode,
@@ -51,7 +54,8 @@ export default function ColorModeProvider({ children }) {
             ? {
                 // palette values for light mode
                 // primary: grey,
-                primary: purple,
+                primary: lightGreen,
+                secondary: grey,
                 divider: grey[300],
                 background: {
                   default: grey[300],
@@ -59,13 +63,14 @@ export default function ColorModeProvider({ children }) {
                 },
                 text: {
                   primary: grey[900],
-                  secondary: grey[800],
+                  secondary: grey[500],
                 },
               }
             : {
                 // palette values for dark mode
                 // primary: grey,
-                primary: purple,
+                primary: lightGreen,
+                secondary: grey,
                 divider: grey[700],
                 background: {
                   default: grey[900],

@@ -15,7 +15,8 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
-import SwapHorizontalCircleIcon from "@mui/icons-material/SwapHorizontalCircle";
+// import SwapHorizontalCircleIcon from "@mui/icons-material/SwapHorizontalCircle";
+import { AiOutlineSwap } from "react-icons/ai";
 
 function CurrencyConverter() {
   // Initializing all the state variables
@@ -65,7 +66,14 @@ function CurrencyConverter() {
 
   return (
     <React.Fragment>
-      <Card variant="outlined" sx={{ width: "20rem", boxShadow: "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px" }}>
+      <Card
+        variant="outlined"
+        sx={{
+          width: "20rem",
+          boxShadow:
+            "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px",
+        }}
+      >
         <Paper>
           <CardContent>
             <Box sx={{ mb: 2 }}>
@@ -75,7 +83,11 @@ function CurrencyConverter() {
                 justifyContent="space-between"
               >
                 <Box sx={{ minWidth: 110 }}>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ pb: 0.5 }}
+                  >
                     From
                   </Typography>
                   <FormControl fullWidth size="small" variant="filled">
@@ -91,24 +103,28 @@ function CurrencyConverter() {
                       </MenuItem>
                       {options.map((option) => (
                         <MenuItem key={option} value={option}>
-                          {option}
+                          {option.toUpperCase()}
                         </MenuItem>
                       ))}
                     </Select>
                   </FormControl>
                 </Box>
-                <Box sx={{ pt: 2 }}>
+                <Box sx={{ pt: 2.5 }}>
                   <IconButton
                     aria-label="Swap"
                     onClick={() => {
                       flip();
                     }}
                   >
-                    <SwapHorizontalCircleIcon fontSize="large" />
+                    <AiOutlineSwap fontSize="1.6rem" />
                   </IconButton>
                 </Box>
                 <Box sx={{ minWidth: 110 }}>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ pb: 0.5 }}
+                  >
                     To
                   </Typography>
                   <FormControl fullWidth size="small" variant="filled">
@@ -123,7 +139,7 @@ function CurrencyConverter() {
                       </MenuItem>
                       {options.map((option) => (
                         <MenuItem key={option} value={option}>
-                          {option}
+                          {option.toUpperCase()}
                         </MenuItem>
                       ))}
                     </Select>
@@ -133,7 +149,11 @@ function CurrencyConverter() {
             </Box>
 
             <Box sx={{ mb: 2 }}>
-              <Typography variant="body2" color="text.secondary">
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ pb: 0.5 }}
+              >
                 Amount
               </Typography>
               <TextField
@@ -147,11 +167,11 @@ function CurrencyConverter() {
               />
             </Box>
 
-            <Box color="text.secondary" sx={{p:1}}>
+            <Box bgColor="text.secondary" sx={{ p: 1 }}>
               <Typography variant="body2" color="text.secondary">
                 Converted Amount:
               </Typography>
-              <Typography variant="h5" sx={{fontWeight:"bold"}}>
+              <Typography variant="h5" sx={{ fontWeight: "bold" }}>
                 {input +
                   " " +
                   from.toUpperCase() +
@@ -170,8 +190,7 @@ function CurrencyConverter() {
             onClick={() => {
               convert();
             }}
-
-            sx={{padding:"0.7rem"}}
+            sx={{ padding: "0.7rem" }}
           >
             Convert
           </Button>
