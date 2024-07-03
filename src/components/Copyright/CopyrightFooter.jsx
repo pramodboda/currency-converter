@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
 
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
@@ -35,7 +36,7 @@ function CopyrightFooter() {
   return (
     <Box sx={{ color: "text.secondary" }}>
       <Stack
-        direction={{ xs: "column", md: "row" }}
+        direction={{ md: "column", lg: "row" }}
         alignItems="center"
         justifyContent="space-between"
       >
@@ -44,11 +45,18 @@ function CopyrightFooter() {
             Proudly based in Hyderabad, India
           </Typography>
         </Box>
-        <Box>
-          <Typography variant="body2">Made by Pramod Boda</Typography>
+        <Box
+          sx={{ mb: { xs: "1rem", sm: "1.2rem", md: "2rem", lg: "inherit" } }}
+        >
+          <Typography variant="body2">
+            Made by{" "}
+            <Link href={socialData[0].url} underline="always">
+              Pramod Boda
+            </Link>
+          </Typography>
         </Box>
         <Box>
-          <Stack direction="row" spacing={1}>
+          <Stack direction="row" spacing={2}>
             {socialData.map((social) => (
               <IconButton
                 href={social.url}

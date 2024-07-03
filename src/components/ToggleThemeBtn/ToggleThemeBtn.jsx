@@ -19,7 +19,7 @@ export default function ToggleThemeBtn() {
       color="secondary"
       variant="text"
       onClick={colorMode.toggleColorMode}
-      startIcon={
+      endIcon={
         theme.palette.mode === "dark" ? (
           <Brightness7Icon />
         ) : (
