@@ -110,7 +110,9 @@ function CurrencyConverter() {
                   </FormControl>
                 </Box>
                 <Box sx={{ pt: 2.5 }}>
-                  <IconButton
+                  
+                  <IconButton 
+                  color="primary"
                     aria-label="Swap"
                     onClick={() => {
                       flip();
@@ -118,6 +120,8 @@ function CurrencyConverter() {
                   >
                     <AiOutlineSwap fontSize="1.6rem" />
                   </IconButton>
+                  
+
                 </Box>
                 <Box sx={{ minWidth: 110 }}>
                   <Typography
